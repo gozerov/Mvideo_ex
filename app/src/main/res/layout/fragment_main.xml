@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    android:id="@+id/mainScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/marginStartGuideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="12dp"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/marginEndGuideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="12dp"/>
+
+        <FrameLayout
+            android:id="@+id/headerSection"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:paddingBottom="12dp"
+            android:background="@color/background_main"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/searchInMvideoButton">
+
+            <ImageView
+                android:id="@+id/imgLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/icon_location"
+                android:src="@drawable/ic_baseline_location_on_24"/>
+
+            <ImageView
+                android:id="@+id/imgCenterHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/icon_mvideo"
+                android:src="@drawable/ic_baseline_sentiment_satisfied_alt_24"/>
+
+            <ImageView
+                android:id="@+id/imgChatSupport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/icon_support"
+                android:src="@drawable/ic_baseline_chat_bubble_24"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                style="@style/DefaultRecyclerView"
+                android:id="@+id/topCardsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="12dp"
+                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:orientation="horizontal"
+                tools:listitem="@layout/item_top_card" />
+
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/searchInMvideoButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+            app:layout_constraintEnd_toEndOf="@id/marginEndGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/headerSection"
+            android:layout_marginTop="12dp"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="8dp"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:background="@drawable/custom_edit_text"
+            android:inputType="none"
+            android:textColor="@color/black"
+            android:text="@string/search_in_mvideo"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            style="@style/DefaultRecyclerView"
+            android:id="@+id/saleCardsRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/searchInMvideoButton"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="8dp"
+            tools:listitem="@layout/item_sale_card"
+            tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:orientation="horizontal"/>
+
+        <Button
+            android:id="@+id/allSalesButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+            app:layout_constraintEnd_toEndOf="@id/marginEndGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/saleCardsRecyclerView"
+            android:backgroundTint="@color/background_main"
+            android:text="@string/all_sales"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:layout_marginHorizontal="12dp"/>
+
+        <Space
+            android:id="@+id/bottomAllSales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/allSalesButton"/>
+
+        <FrameLayout
+            android:id="@+id/section_products_of_the_day"
+            android:layout_width="0dp"
+            android:layout_height="372dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bottomAllSales"
+            android:background="@color/background_main">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/productOfTheDayTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/products_of_the_day"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="start"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/productOfTheDayTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_06_48_50"
+                android:textColor="@color/black"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="12dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                style="@style/DefaultRecyclerView"
+                android:id="@+id/productsOfTheDayRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="12dp"
+                android:paddingBottom="12dp"
+                tools:listitem="@layout/item_product_of_the_day"
+                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:orientation="horizontal"/>
+
+        </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtHitsOfSales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/section_products_of_the_day"
+                android:layout_marginTop="32dp"
+                android:text="@string/hits_of_sales"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                style="@style/DefaultRecyclerView"
+                android:id="@+id/hitsOfSalesRecyclerView"
+                android:layout_width="0dp"
+                app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/txtHitsOfSales"
+                android:layout_marginTop="16dp"
+                android:paddingBottom="12dp"
+                tools:listitem="@layout/item_hit_of_sale"
+                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:orientation="horizontal"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                style="@style/DefaultRecyclerView"
+                android:id="@+id/saleCardsRecyclerView_bottom"
+                android:layout_width="0dp"
+                android:layout_marginTop="24dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/hitsOfSalesRecyclerView"
+                tools:listitem="@layout/item_sale_card"
+                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:orientation="horizontal"/>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="wrap_content"
+                app:tabMinWidth="80dp"
+                app:tabMaxWidth="100dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="32dp"
+                app:tabTextAppearance="@style/AllCapsFalseTextAppearance"
+                app:tabMode="fixed"
+                app:tabIndicatorHeight="0dp"
+                app:tabRippleColor="@color/transparent"
+                app:tabIndicatorAnimationMode="elastic"
+                app:tabPaddingStart="4dp"
+                app:tabPaddingEnd="4dp"
+                app:tabBackground="@drawable/custom_tab_background"
+                android:scrollIndicators="none"
+                app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/saleCardsRecyclerView_bottom"/>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/trendsViewPager"
+                android:layout_width="0dp"
+                android:layout_height="316dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tabLayout"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgMagIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/trendsViewPager"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_baseline_sentiment_satisfied_alt_24"/>
+
+            <com.google.android.material.internal.BaselineLayout
+                android:id="@+id/lineImageMagToTxtMag"
+                android:layout_width="0.5dp"
+                android:layout_height="18dp"
+                android:orientation="vertical"
+                android:layout_marginStart="4dp"
+                android:background="@color/black"
+                app:layout_constraintStart_toEndOf="@id/imgMagIcon"
+                app:layout_constraintTop_toTopOf="@id/imgMagIcon"
+                app:layout_constraintBottom_toBottomOf="@id/imgMagIcon"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/lineImageMagToTxtMag"
+                app:layout_constraintTop_toTopOf="@id/lineImageMagToTxtMag"
+                app:layout_constraintBottom_toBottomOf="@id/lineImageMagToTxtMag"
+                android:layout_marginStart="4dp"
+                android:text="@string/mag"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                style="@style/DefaultRecyclerView"
+                android:id="@+id/magRecyclerView"
+                android:layout_width="0dp"
+                app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/imgMagIcon"
+                android:layout_marginTop="16dp"
+                tools:listitem="@layout/item_mag_card"
+                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:orientation="horizontal"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/allNewsAndReviewsButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_card_background_sale"
+                app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+                app:layout_constraintEnd_toEndOf="@id/marginEndGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/magRecyclerView"
+                android:layout_marginTop="12dp"
+                android:paddingVertical="4dp"
+                android:text="@string/all_news_and_reviews"
+                android:textColor="@color/black"
+                android:textAllCaps="false"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtYouWatched"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/allNewsAndReviewsButton"
+                android:layout_marginTop="28dp"
+                android:text="@string/you_watched"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/youWatchedButton"
+                android:layout_width="40dp"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_baseline_arrow_forward_24"
+                android:background="@drawable/custom_card_background_sale"
+                app:layout_constraintEnd_toEndOf="@id/marginEndGuideLine"
+                app:layout_constraintTop_toTopOf="@id/txtYouWatched"
+                app:layout_constraintBottom_toBottomOf="@id/txtYouWatched"
+                android:paddingVertical="3dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/watchedProductsRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtYouWatched"
+                android:layout_marginTop="16dp"
+                tools:listitem="@layout/item_watched_product"
+                tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:orientation="horizontal"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="168dp"
+                app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+                app:layout_constraintEnd_toEndOf="@id/marginEndGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/watchedProductsRecyclerView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:background="@drawable/custom_card_background_sale">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtThatNotAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_gravity="top"
+                    android:text="@string/that_not_all"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtWatchSomeSales"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_gravity="center"
+                    android:text="@string/see_all_sales_it_is_interesting"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:maxLines="2"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="120dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/all_sales"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false"
+                    android:background="@drawable/custom_card_background_red"
+                    android:layout_gravity="bottom"/>
+
+            </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

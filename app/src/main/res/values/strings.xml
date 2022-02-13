@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Mvideo_ex</string>
+    <string name="login">Войти</string>
+    <string name="about_orders">Здесь будут данные о ваших заказах</string>
+    <string name="take_orders_from_shop">Забирайте товары прямо из магазина</string>
+    <string name="personals">Персональные предложения!</string>
+    <string name="discounts">Скидки!</string>
+    <string name="oldPriceExample"><strike>39 990</strike></string>
+    <string name="num_reviews">%1$d отзывов</string>
+    <string name="icon_location">icon location</string>
+    <string name="icon_mvideo">icon_mvideo</string>
+    <string name="icon_support">icon support</string>
+    <string name="search_in_mvideo">Поиск в М.Видео</string>
+    <string name="all_sales">Все акции</string>
+    <string name="products_of_the_day">Товары дня</string>
+    <string name="_06_48_50">06:48:50</string>
+    <string name="hits_of_sales">Хиты продаж</string>
+    <string name="mag">Mag</string>
+    <string name="all_news_and_reviews">Все новости и обзоры</string>
+    <string name="you_watched">Вы смотрели</string>
+    <string name="that_not_all">Это ещё не всё</string>
+    <string name="see_all_sales_it_is_interesting">Посмотрите наши акции, там много интересного.</string>
+    <string name="welcome_to_m_club">Добро пожаловать \n в Бонусную программу M.Club</string>
+    <string name="conditions_of_program">Условия программы</string>
+    <string name="profile">Профиль</string>
+    <string name="login_to_manage_bonus_bill">Войдите, чтобы управлять заказами \n и состоянием Бонусного счета</string>
+    <string name="phone">Телефон</string>
+    <string name="continue_">Продолжить</string>
+</resources>

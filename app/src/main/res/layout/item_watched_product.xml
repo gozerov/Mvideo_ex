@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="280dp"
+    android:layout_height="88dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/custom_card_background_sale"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topMarginGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="8dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomMarginGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="80dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBetweenImageAndTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="80dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgProduct"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guidelineBetweenImageAndTxt"
+        app:layout_constraintTop_toTopOf="@id/topMarginGuideLine"
+        app:layout_constraintBottom_toBottomOf="@id/bottomMarginGuideLine"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        tools:src="@drawable/test_product_small_image"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guidelineBetweenImageAndTxt"
+        app:layout_constraintTop_toTopOf="@id/topMarginGuideLine"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        tools:text="33 990 ₽"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtProductSimpleName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        tools:text="@tools:sample/lorem/random"
+        android:maxLines="2"
+        app:layout_constraintStart_toStartOf="@id/txtProductPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtProductPrice"
+        android:layout_marginEnd="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="216dp"
+    android:layout_height="220dp"
+    android:elevation="1dp"
+    android:background="@drawable/custom_card_background_sale"
+    android:layout_marginVertical="4dp"
+    android:layout_marginEnd="12dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/imageBottomGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="120dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgProductPlacement"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/imageBottomGuideLine"
+        android:layout_marginVertical="12dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/marginStartGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="12dp"
+        android:orientation="vertical"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtNewProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+        app:layout_constraintTop_toTopOf="@id/imageBottomGuideLine"
+        tools:text="27999 ₽"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtOldProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/txtNewProductPrice"
+        app:layout_constraintTop_toTopOf="@id/txtNewProductPrice"
+        android:layout_marginStart="4dp"
+        tools:text="@string/oldPriceExample"
+        android:textSize="12sp"/>
+
+    <ImageView
+        android:id="@+id/imgRatingStar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+        app:layout_constraintTop_toBottomOf="@id/txtNewProductPrice"
+        app:layout_constraintBottom_toBottomOf="@id/txtRating"
+        android:src="@drawable/ic_baseline_star_24"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/imgRatingStar"
+        app:layout_constraintTop_toBottomOf="@id/txtNewProductPrice"
+        android:layout_marginStart="2dp"
+        tools:text="4.7"
+        android:textSize="12sp"
+        android:textColor="@color/red_main"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtReviews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/txtRating"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtRating"
+        android:layout_marginStart="8dp"
+        tools:text="40 отзывов"
+        android:textSize="12sp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtProductNaming"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/marginStartGuideLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtRating"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"
+        tools:text="Смартфон HUAWEI nova 8 Blush Gold (ANG-LX1)"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:lines="3"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
