@@ -10,21 +10,21 @@ import ru.gozerov.domain.entity.BonusProgram
 import ru.gozerov.domain.usecase.GetBonusProgramsUseCase
 
 class PreLoginViewModel(
-    icons: Map<String, Int>
+    iconId: Int
 ): ViewModel() {
 
     private val _adapterDataFlow = MutableSharedFlow<List<BonusProgram>>(1, 0, BufferOverflow.DROP_OLDEST)
     val adapterDataFlow: SharedFlow<List<BonusProgram>> = _adapterDataFlow.asSharedFlow()
 
     init {
-        _adapterDataFlow.tryEmit(GetBonusProgramsUseCase(icons).execute())
+        _adapterDataFlow.tryEmit(GetBonusProgramsUseCase().execute(iconId))
     }
 
-    class Factory(private val icons: Map<String, Int>): ViewModelProvider.Factory {
+    class Factory(private val iconId: Int): ViewModelProvider.Factory {
 
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return PreLoginViewModel(icons) as T
+            return PreLoginViewModel(iconId) as T
         }
 
     }

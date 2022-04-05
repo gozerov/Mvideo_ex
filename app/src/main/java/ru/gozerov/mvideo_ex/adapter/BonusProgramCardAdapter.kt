@@ -5,9 +5,7 @@ import android.view.ViewGroup
 import ru.gozerov.core.BaseRecyclerViewAdapter
 import ru.gozerov.core.BaseViewHolder
 import ru.gozerov.domain.entity.BonusProgram
-import ru.gozerov.domain.usecase.Icons
 import ru.gozerov.mvideo_ex.databinding.ItemBonusProgramBinding
-import ru.gozerov.mvideo_ex.databinding.ItemHitOfSaleBinding
 
 class BonusProgramCardAdapter: BaseRecyclerViewAdapter<BonusProgram>() {
 

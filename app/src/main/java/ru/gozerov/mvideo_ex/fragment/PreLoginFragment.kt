@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import ru.gozerov.core.*
-import ru.gozerov.domain.usecase.Icons
 import ru.gozerov.mvideo_ex.R
 import ru.gozerov.mvideo_ex.adapter.BonusProgramCardAdapter
 import ru.gozerov.mvideo_ex.databinding.FragmentPreLoginBinding
@@ -21,7 +20,7 @@ class PreLoginFragment: Fragment() {
 
     private val viewModel: PreLoginViewModel by viewModels {
         PreLoginViewModel.Factory(
-            mapOf(Icons.ICON_CIRCLE_ARROW to R.drawable.ic_baseline_arrow_circle_up_24)
+            R.drawable.ic_baseline_arrow_circle_up_24
         )
     }
 

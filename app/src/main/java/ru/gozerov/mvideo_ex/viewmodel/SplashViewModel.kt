@@ -1,17 +1,25 @@
 package ru.gozerov.mvideo_ex.viewmodel
 
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import ru.gozerov.domain.entity.AdaptersData
 import ru.gozerov.domain.entity.AdaptersDataConverter
+import ru.gozerov.domain.entity.CardRes
 import ru.gozerov.domain.usecase.GetAdaptersDataUseCase
 
 class SplashViewModel(
-    private val strings: Map<String, String>,
-    private val icons: Map<String, Int>
+    private val cardRes: CardRes,
+    private val getAdaptersDataUseCase: GetAdaptersDataUseCase
     ): ViewModel() {
 
     private val _adaptersDataConfigFlow = MutableSharedFlow<AdaptersData>(0, 1, BufferOverflow.DROP_OLDEST)
@@ -22,19 +30,26 @@ class SplashViewModel(
     }
 
     private fun emitData() = viewModelScope.launch {
-        val data = GetAdaptersDataUseCase(strings, icons).execute()
+        val data = getAdaptersDataUseCase.execute(cardRes)
         delay(500)
         _adaptersDataConfigFlow.emit(AdaptersDataConverter.convert(data))
     }
 
-    class Factory(
-        private val factoryStrings: Map<String, String>,
-        private val factoryIcons: Map<String, Int>
+    class SplashVMFactory @AssistedInject constructor (
+        @Assisted("cardRes") private val factoryCardRes: CardRes,
+        private val getAdaptersDataUseCase: GetAdaptersDataUseCase
         ): ViewModelProvider.Factory {
 
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return SplashViewModel(factoryStrings, factoryIcons) as T
+            return SplashViewModel(cardRes = factoryCardRes, getAdaptersDataUseCase = getAdaptersDataUseCase) as T
+        }
+
+        @AssistedFactory
+        interface Factory {
+
+            fun create(@Assisted("cardRes") factoryCardRes: CardRes): SplashVMFactory
+
         }
 
     }
