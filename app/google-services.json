@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "988729874955",
+    "project_id": "mvideo-ex",
+    "storage_bucket": "mvideo-ex.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988729874955:android:8c9eb1e19109ef3db0c50e",
+        "android_client_info": {
+          "package_name": "ru.gozerov.mvideo_ex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988729874955-78uos12oa7s353dngl0pr6mcgsrhmssk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiwAu8D7h8ddWrevV0Kq2g7K_lmx34Ly4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988729874955-78uos12oa7s353dngl0pr6mcgsrhmssk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -51,6 +51,9 @@ class MainFragment: Fragment() {
                 TabsFragment.router.navigateTo(Screens.preLoginFragment())
             }
         }
+        binding.imgChatSupport.setOnClickListener {
+            TabsFragment.router.navigateTo(Screens.newsFragment())
+        }
 
         return binding.root
     }

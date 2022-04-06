@@ -44,4 +44,10 @@ dependencies {
     //Dagger2
     implementation "com.google.dagger:dagger:$dagger2_version"
     kapt("com.google.dagger:dagger-compiler:$dagger2_version")
+
+    //Retrofit2 and OkHttp3
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:okhttp:$okHttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttp_version"
 }

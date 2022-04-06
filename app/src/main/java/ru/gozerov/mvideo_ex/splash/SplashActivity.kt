@@ -6,10 +6,10 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import ru.gozerov.core.appComponent
 import ru.gozerov.domain.entity.CardRes
 import ru.gozerov.mvideo_ex.R
 import ru.gozerov.mvideo_ex.activity.MainActivity
-import ru.gozerov.mvideo_ex.singleton.appComponent
 import ru.gozerov.mvideo_ex.viewmodel.SplashViewModel
 import javax.inject.Inject
 

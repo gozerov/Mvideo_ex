@@ -3,6 +3,7 @@ package ru.gozerov.mvideo_ex.singleton
 import android.app.Application
 import android.content.Context
 import com.github.terrakok.cicerone.Cicerone
+import com.google.firebase.FirebaseApp
 import ru.gozerov.mvideo_ex.di.AppComponent
 import ru.gozerov.mvideo_ex.di.DaggerAppComponent
 
@@ -20,6 +21,7 @@ class App : Application() {
             .build()
         appComponent.inject(this)
         super.onCreate()
+        FirebaseApp.initializeApp(this)
         INSTANCE = this
     }
 
@@ -28,8 +30,3 @@ class App : Application() {
             private set
     }
 }
-val Context.appComponent: AppComponent
-    get() = when(this) {
-        is App -> appComponent
-        else -> this.applicationContext.appComponent
-    }

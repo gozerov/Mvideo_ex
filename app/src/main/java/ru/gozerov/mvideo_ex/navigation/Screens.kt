@@ -2,10 +2,7 @@ package ru.gozerov.mvideo_ex.navigation
 
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import ru.gozerov.domain.entity.AdaptersData
-import ru.gozerov.mvideo_ex.fragment.LoginByPhoneFragment
-import ru.gozerov.mvideo_ex.fragment.MainFragment
-import ru.gozerov.mvideo_ex.fragment.PreLoginFragment
-import ru.gozerov.mvideo_ex.fragment.TabsFragment
+import ru.gozerov.mvideo_ex.fragment.*
 
 object Screens {
 
@@ -13,5 +10,6 @@ object Screens {
     fun mainFragment(adaptersData: AdaptersData) = FragmentScreen { MainFragment.getNewInstance(adaptersData) }
     fun preLoginFragment() = FragmentScreen { PreLoginFragment() }
     fun loginByPhoneFragment() = FragmentScreen { LoginByPhoneFragment() }
+    fun newsFragment() = FragmentScreen { NewsFragment() }
 
 }
